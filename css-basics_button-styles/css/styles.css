@@ -24,7 +24,7 @@ button {
   background-color: white;
   padding: 8px 25px;
 }
-/* Difficulties: 
+/* Issues with (to ask teacher): 
 - Changing the border size (button 1) 
 - Changing the font size (button 3)
 
@@ -36,7 +36,7 @@ button {
   border-color: black;
   background-color: blue;
   color: turquoise;
-  border: 25px;
+  border: 5px;
   padding: 50px;
   margin: 100px;
   border-radius: 50px;
@@ -55,7 +55,7 @@ button:active {
 
 .button3 {
   /*Style me! You can test out changing the font, or font size, ...*/
-  font-size: 7px;
+  font-size: 9px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
