@@ -42,7 +42,7 @@ h1 {
   padding: 20px;
   gap: 30px;
 
-  width: 80%;
+  min-width: 100vh;
   min-height: 100vh;
 }
 
@@ -62,8 +62,8 @@ h1 {
 .box--one {
   background-color: lightblue;
 
-  width: 100px;
-  height: 100px;
+  width: 25%;
+  height: 80%;
 }
 
 .box--two {
@@ -93,4 +93,29 @@ h1 {
 
 .box--five img {
   width: 100%;
+}
+
+@media (min-width: 599px) {
+  .box--two {
+    width: 200px;
+  }
+}
+
+@media (min-width: 1199px) {
+  .box--two {
+    width: 400px;
+  }
+}
+
+@media (min-width: 800px) {
+  .box--three {
+    height: 25px;
+    width: 400px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .box--four {
+    background-color: blue;
+  }
 }
