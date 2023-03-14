@@ -96,7 +96,7 @@ footer {
 }
 
 /* 8. These styles should apply to all "notes" */
-[class^="note"] {
+.text-note {
   outline: 2px dashed red;
   font-size: 0.8em;
   color: #808080;
@@ -137,7 +137,7 @@ li ul li {
 
 /* 14. These styles should apply to all list items in nested lists */
 ul li {
-  outline: 2px dashed purple;
+  outline: 2px dashed red;
   margin: 0;
   color: #2673bb;
 }
