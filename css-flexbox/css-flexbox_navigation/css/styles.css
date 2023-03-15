@@ -17,6 +17,14 @@ ul {
   padding: 0;
 }
 
+.navigation__menu {
+  display: flex;
+  justify-content: space-between;
+}
+li:nth-child(1) {
+  order: 3;
+}
+
 .header {
   padding: 20px;
   color: #252629;
