@@ -29,7 +29,7 @@ console.log("likes: ", likes);
 console.log("user: ", user);
 console.log("isReported: ", isReported);
 
-likes = likes + 2;
+likes = likes + 5;
 
 console.log("likes: ", likes);
 
