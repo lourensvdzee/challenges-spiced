@@ -19,6 +19,7 @@ Change the contents of this page depending on the current day and time.
 
 */
 
+
 const display = document.querySelector('[data-js="display"]');
 
 function getGreeting() {
