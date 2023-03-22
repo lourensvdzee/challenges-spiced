@@ -10,10 +10,17 @@ const output = document.querySelector('[data-js="output"]');
 
 pizzaInput1.addEventListener("input", () => {
   // write your code here
+  
+  let pizzasize1 = 24;
+  let pizzasize2 = 24;
+
+  function calculatePizzaGain (diameter1,diameter2);
 });
 
 pizzaInput2.addEventListener("input", () => {
   // write your code here
+  
+
 });
 
 // Task 1
