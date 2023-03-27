@@ -7,7 +7,7 @@ console.log("Exercise 1:");
 */
 
 // Uncomment the next line of code and figure out why it does not work:
-// logText;
+logText();
 
 function logText() {
   console.log("This text does not appear. Why?");
@@ -15,29 +15,36 @@ function logText() {
 
 console.log("-------------");
 console.log("Exercise 2:");
+
 /*
 2: Look at the functions below. They are almost identical. Can you find a way to generalize them into a new function with an input parameter? Replace the function calls below with your new function.
 */
 
-function greetBob() {
-  console.log("Welcome Bob, good to see you again!");
-}
+// function greetBob() {
+//   console.log("Welcome Bob, good to see you again!");
+// }
 
-function greetAlice() {
-  console.log("Welcome Alice, good to see you again!");
-}
+// function greetAlice() {
+//   console.log("Welcome Alice, good to see you again!");
+// }
 
-function greetMary() {
-  console.log("Welcome Mary, good to see you again!");
-}
+// function greetMary() {
+//   console.log("Welcome Mary, good to see you again!");
+// }
 
-greetAlice();
-greetBob();
-greetMary();
+// greetAlice();
+// greetBob();
+// greetMary();
 
 // --v-- write your code here --v--
 
-function greet() {}
+function greet(name) {
+  console.log("welcome " + name + ", good to see you again!" );
+}
+
+greet("Alice");
+greet("Bob");
+greet("Max");
 
 // --^-- write your code here --^--
 
@@ -47,6 +54,13 @@ console.log("3:");
 3: We log a little separation text for each subtask. This is repetitive code, so lets write a function 'logSeparator' which takes the number of the exercise as an input parameter and logs the respective separator. then use this function to replace the existing separator logs in this javascript file.
 */
 
-// --v-- write your code here --v--
 
+
+// --v-- write your code here --v--
+function logSeparator(exerciseNumber) {
+  console.log("-------------");
+  console.log("Exercise: "+exerciseNumber);
+}
+
+logSeparator(4);
 // --^-- write your code here --^--
