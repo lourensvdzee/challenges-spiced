@@ -11,11 +11,27 @@ console.clear();
 
 // --v-- write your code here --v--
 
+const title = "social media post";
+const text = "lorem ipsum";
+let likes = 12;
+const user = "Henk";
+isReported = true;
+
 // --^-- write your code here --^--
 
 /*
 2. Log all variables to the console. Increase the likes by one and log the amount of likes again. Adapt your code from 1.1 if necessary.
 */
+
+console.log("title: ", title);
+console.log("text: ", text);
+console.log("likes: ", likes);
+console.log("user: ", user);
+console.log("isReported: ", isReported);
+
+likes = likes + 5;
+
+console.log("likes: ", likes);
 
 // --v-- write your code here --v--
 
