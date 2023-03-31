@@ -19,6 +19,23 @@ function checkIfApiIsAvailable() {
    * is okay and false if it is not.
    **/
   // --v-- write your code here --v--
+  const url = "https://example-.vercel.app/api/status";
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
+    .then(data => {
+      // use the retrieved data here
+      console.log(data);
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+
   // --^-- write your code here --^--
 }
 
