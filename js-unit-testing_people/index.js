@@ -2,18 +2,84 @@ export function getFirstNames(people) {
   return people.map((person) => person.firstName);
 }
 
-export function getFullNames(people) {}
+export function getFullNames(people) {
+  return people.map((person) => `${person.firstName} ${person.lastName}`);
+}
 
-export function getNameAndAge(people) {}
+export function getNameAndAge(people) {
+  return people.map((person) => `${person.lastName} (${person.age})`);
+}
 
-export function getPeopleByAge(people, age) {}
 
-export function getPeopleNamesOlderThan(people, age) {}
 
-export function getPeopleByLastName(people, lastName) {}
+export function getPeopleByAge(people, age) {
+  return people
+    .filter(person => person.age === age)
+}
 
-export function findPersonById(people, id) {}
 
-export function isAnyoneOlderThan(people, age) {}
+export function getPeopleNamesOlderThan(people, age) {
+  return people
+    .filter(person => person.age >= age)
+    .map((person) => `${person.firstName} ${person.lastName}`);
+}
 
-export function getFullNamesSortedByAge(people) {}
+export function getPeopleByLastName(people, lastName) {
+  return people
+    .filter((people) => people.lastName === lastName)
+}
+
+
+export function findPersonById(people, id) {
+  return people
+    .filter((people) => people.id === id);
+}
+
+export function isAnyoneOlderThan(people, age) {
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].age >= age) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+const people = [
+  {
+    id: 1,
+    firstName: "Jane",
+    lastName: "Doe",
+    age: 21,
+  },
+  {
+    id: 2,
+    firstName: "John",
+    lastName: "Doe",
+    age: 18,
+  },
+  {
+    id: 3,
+    firstName: "Max",
+    lastName: "Mustermann",
+    age: 32,
+  },
+  {
+    id: 4,
+    firstName: "Erika",
+    lastName: "Musterfrau",
+    age: 38,
+  },
+  {
+    id: 5,
+    firstName: "Luke",
+    lastName: "Skywalker",
+    age: 23,
+  },
+];
+const filteredPeople = getFullNamesSortedByAge(people);
+console.log(filteredPeople);
+
+export function getFullNamesSortedByAge(people) {
+  people.sort((a, b) => a.age - b.age);
+  return people.map(person => person.lastName);
+}
