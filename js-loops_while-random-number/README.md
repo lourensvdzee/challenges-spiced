@@ -18,6 +18,13 @@ Create a `while` loop that
 - logs `number` to the console
 - sets `number` to a random number; you can use `Math.random()` here.
 
+while (<=0.9) {
+    count=number(++);
+    console.log(number);
+    number=math.random();
+
+}
+
 If you're done, test your loop by refreshing the browser several times and watching the console!
 
 Please switch to the [`index.js`](./index.js) file and be random!
