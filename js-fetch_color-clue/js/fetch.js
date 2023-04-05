@@ -18,6 +18,29 @@ export async function fetchNewColor() {
    */
 
   // --v-- your code here --v--
+  /*   async function fetchColorData(hexCode) {
+      try {
+        const response = await fetch(`https://www.thecolorapi.com/id?hex=${hexCode}`);
+        const data = await response.json();
+        console.log(data);
+        return data;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+  
+    fetchColorData(); */
+
+  async function fetchColorToGuess(hexCode) {
+    const response = await fetch(colorApiUrl);
+    const data = await response.json();
+    const closestNamedHex = data.name.closest_named_hex;
+    const closestNamedColor = data.name.value;
+    setColorToGuess(closestNamedHex, closestNamedColor);
+  }
+
+  // example usage
+  fetchColorToGuess("FF0000");
 
   // --^-- your code here --^--
 }
