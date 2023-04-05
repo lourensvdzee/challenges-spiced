@@ -78,35 +78,63 @@ const animals = [
 ];
 
 // Hint: Besides the array method, check out the string method `startsWith()`.
-const firstAnimalStartingWithLetterG = null;
+const firstAnimalStartingWithLetterG = animals.find((animal) => animal.name.startsWith("g"));
+// console.log("firstAnimalStartingWithLetterG:", firstAnimalStartingWithLetterG);
 
-const indexOfAnimalWithNameLongerFive = null;
+const indexOfAnimalWithNameLongerFive = animals
+  .filter((animal) => animal.name.length > 5)
+  .map((animal) => animals.indexOf(animal));
+// console.log(indexOfAnimalWithNameLongerFive);
 
-// Note:
-// - Sorting strings is slightly more complicated than sorting numbers.
-// - You will need if-statements and return values of -1, 1, and 0.
-// - Check out MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+// // Note:
+// // - Sorting strings is slightly more complicated than sorting numbers.
+// // - You will need if-statements and return values of -1, 1, and 0.
+// // - Check out MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-// Hint: There is no need to upper-/lowercase the strings before sorting them.
-// Hint: sort() mutates the original array, which is bad.
-// -> Use animals.slice().sort(...) to make a copy (and the tests work).
+// // Hint: There is no need to upper-/lowercase the strings before sorting them.
+// // Hint: sort() mutates the original array, which is bad.
+// // -> Use animals.slice().sort(...) to make a copy (and the tests work).
 
-const animalsSortedAlphabetically = null;
+const animalsSortedAlphabetically = animals.slice().sort((a, b) => {
+  if (a.name > b.name) return 1;
+  else if (a.name < b.name) return -1;
+  return 0;
+}).map(animal => animal.name);
+// console.log(animalsSortedAlphabetically);
 
-const animalsSortedByWeightStartingWithLowest = null;
+const animalsSortedByWeightStartingWithLowest = animals.slice().sort((a, b) => {
+  if (a.weight > b.weight) return 1;
+  else if (a.weight < b.weight) return -1;
+  return 0;
+}).map(animal => animal.name);
+// console.log(animalsSortedByWeightStartingWithLowest);
 
-const animalsSortedByWeightReversed = null;
+const animalsSortedByWeightReversed = animals.slice().sort((a, b) => {
+  return b.weight - a.weight;
+}).map(animal => animal.name);
+// console.log(animalsSortedByWeightReversed);
 
-const animalWithWeightMoreThanFivehundredExists = null;
+const animalWithWeightMoreThanFivehundredExists = animals.some(animal => animal.weight > 500);
+// console.log("animalWithWeightMoreThanFivehundredExists:", animalWithWeightMoreThanFivehundredExists);
 
 // Hint: Filter for Europe first, then check every animal for its weight.
-const allAnimalsInEuropeWeighLessThanOnehundred = null;
+const allAnimalsInEuropeWeighLessThanOnehundred = animals.filter((animal) => {
+  return animal.weight < 100 && animal.continents.includes("Europe");
+}).map(animal => animal.name);
+// console.log("allAnimalsInEuropeWeighLessThanOnehundred:", allAnimalsInEuropeWeighLessThanOnehundred);
 
-// Hint: filter + map + reduce
-const weightOfAllAnimalsInAfrica = null;
+// // Hint: filter + map + reduce
+const weightOfAllAnimalsInAfrica = animals
+  .filter(animal => animal.continents.includes("Africa"))
+  .reduce((x, animal) => x + animal.weight, 0);
+// console.log("weightOfAllAnimalsInAfrica:", weightOfAllAnimalsInAfrica);
 
-// Hint: As above, but divided by the number of animals in Africa.
-const averageWeightOfAllAnimalsInAfrica = null;
+// // Hint: As above, but divided by the number of animals in Africa.
+const animalsInAfrica = animals.filter(animal => animal.continents.includes("Africa"));
+const numberOfAnimalsInAfrica = animalsInAfrica.length;
+const totalWeightOfAnimalsInAfrica = animalsInAfrica.reduce((x, animal) => x + animal.weight, 0);
+const averageWeightOfAllAnimalsInAfrica = totalWeightOfAnimalsInAfrica / numberOfAnimalsInAfrica;
+console.log("averageWeightOfAllAnimalsInAfrica:", averageWeightOfAllAnimalsInAfrica);
 
 export {
   firstAnimalStartingWithLetterG,
