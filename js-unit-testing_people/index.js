@@ -34,6 +34,16 @@ export function findPersonById(people, id) {
   return people
     .filter((people) => people.id === id);
 }
+
+export function isAnyoneOlderThan(people, age) {
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].age >= age) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
 const people = [
   {
     id: 1,
@@ -66,16 +76,10 @@ const people = [
     age: 23,
   },
 ];
-const filteredPeople = isAnyoneOlderThan(people, 60);
+const filteredPeople = getFullNamesSortedByAge(people);
 console.log(filteredPeople);
 
-export function isAnyoneOlderThan(people, age) {
-  for (let i = 0; i < people.length; i++) {
-    if (people[i].age >= age) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+export function getFullNamesSortedByAge(people) {
+  people.sort((a, b) => a.age - b.age);
+  return people.map(person => person.lastName);
 }
-export function getFullNamesSortedByAge(people) { }
