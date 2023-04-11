@@ -2,5 +2,9 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  return <h1>Hello Peoples!</h1>;
+  return <HelloWorld />
+}
+
+function HelloWorld() {
+  return <div>Goodbye Peoples!</div>;
 }
