@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function FavoriteButton() {
   // const isFavorite = false;
-  // let's add a the toggle function with useState, calling a new function called setIsFavorite as opposite of isFavorite
+  //switched off const declaration, as react can't handle it with this useState function. Instead, we need a new function that react can read. We start with false, as that is the initial variable
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
