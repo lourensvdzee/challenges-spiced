@@ -1,13 +1,19 @@
-import React from "react";
+// import React from "react";
 
-export default function Form(props) {
+// export default function Form(props) {
+//   function handleSubmit(event) {
+//     event.preventDefault();
+//     const newName = event.target.elements.name.value;
+//     const newEmail = event.target.elements.email.value;
+//     props.setName(newName);
+//     props.setEmail(newEmail);
+//     event.target.reset();
+//   }
+
+export default function Form({ onCreateUser }) {
   function handleSubmit(event) {
     event.preventDefault();
-    const newName = event.target.elements.name.value;
-    const newEmail = event.target.elements.email.value;
-    props.setName(newName);
-    props.setEmail(newEmail);
-    event.target.reset();
+    onCreateUser(event.target.name.value, event.target.email.value);
   }
 
   return (

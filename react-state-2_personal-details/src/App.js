@@ -6,10 +6,15 @@ export default function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  function handleCreateUser(newName, newEmail) {
+    setName(newName);
+    setEmail(newEmail);
+  }
+
   return (
     <div className="container">
       <h1>Personal Details Form</h1>
-      <Form setName={setName} setEmail={setEmail} />
+      <Form onCreateUser={handleCreateUser} />
       <h2>Your submitted details:</h2>
       <p>
         Name: <span className="output">{name}</span>
