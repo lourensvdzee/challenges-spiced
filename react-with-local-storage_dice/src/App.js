@@ -6,18 +6,32 @@ import useLocalStorageState from "use-local-storage-state";
 import "./styles.css";
 
 export default function App() {
-  const [rolls, setRolls] = useLocalStorageState("rolls", { defaultValue: [] }); // use the hook to store the rolls
-
+  const [rolls, setRolls] = useLocalStorageState("rolls", { defaultValue: [] });
   const handleRoll = () => {
-    setRolls([{ value: getD6Roll(), time: Date.now() }, ...rolls]);
+    setRolls([
+      {
+        value1: getD6Roll(),
+        value2: getD6Roll(),
+        value3: getD6Roll(),
+        time: Date.now(),
+      },
+      ...rolls,
+    ]);
   };
 
-  const currentRollValue = rolls[0]?.value;
+  const value1 = rolls[0]?.value1;
+  const value2 = rolls[0]?.value2;
+  const value3 = rolls[0]?.value3;
 
   return (
     <div className="app">
       <main className="app__main">
-        <D6Button value={currentRollValue} onRoll={handleRoll} />
+        <D6Button
+          value1={value1}
+          value2={value2}
+          value3={value3}
+          onRoll={handleRoll}
+        />
       </main>
       <aside className="app__aside">
         <History rolls={rolls} />
