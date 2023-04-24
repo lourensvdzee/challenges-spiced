@@ -30,27 +30,6 @@ test("renders a form with the accessible name 'Create a new game'", () => {
 });
 
 test("submits the correct form data when every field is filled out", async () => {
-  const mockCreateGame = jest.fn();
-  render(<GameForm onCreateGame={mockCreateGame} />);
-  const nameOfGameInput = screen.getByLabelText("Name of game");
-  const playerNamesInput = screen.getByLabelText("Player names, separated by comma");
-  const createGameButton = screen.getByRole("button", { name: "Create game" });
-  const submittedDataObject = {
-    nameOfGame: "Dodelido",
-    playerNames: ["John Doe", "Jane Doe"],
-  };
-  await userEvent.type(nameOfGameInput, submittedDataObject.nameOfGame);
-  await userEvent.type(playerNamesInput, submittedDataObject.playerNames.join(","));
-  userEvent.click(createGameButton);
-  await waitFor(() => {
-    expect(mockCreateGame).toHaveBeenCalledWith({
-      nameOfGame: submittedDataObject.nameOfGame,
-      playerNames: submittedDataObject.playerNames,
-    });
-  });
-});
-
-test("submits the correct form data when every field is filled out", async () => {
   const mockOnCreateGame = jest.fn();
   render(<GameForm onCreateGame={mockOnCreateGame} />);
 
