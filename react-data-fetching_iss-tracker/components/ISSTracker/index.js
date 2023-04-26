@@ -44,7 +44,7 @@ export default function ISSTracker() {
   //   };
   // }, []);
 
-  const { data, error } = useSWR(URL, fetcher, { refreshInterval: 5000 });
+  const { data, error, mutate } = useSWR(URL, fetcher, { refreshInterval: 5000 });
   const [isLoading, setIsLoading] = useState(!error && !data);
 
   useEffect(() => {
@@ -59,15 +59,25 @@ export default function ISSTracker() {
     return <p>An error occurred: {error.message}</p>;
   }
 
+  const handleReload = async () => {
+    setIsLoading(true);
+    try {
+      // Call the fetcher function again
+      const { longitude, latitude } = await fetcher(URL);
+      // Update the data using the mutate function provided by useSWR
+      mutate({ longitude, latitude });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <main>
       <Map longitude={data.longitude} latitude={data.latitude} />
-      <Controls
-        longitude={data.longitude}
-        latitude={data.latitude}
-      // onRefresh={getISSCoords}
-      />
+      {/* Pass the handleReload function as a prop to the Controls component */}
+      <Controls longitude={data.longitude} latitude={data.latitude} onRefresh={() => handleReload()} />
     </main>
   );
 }
