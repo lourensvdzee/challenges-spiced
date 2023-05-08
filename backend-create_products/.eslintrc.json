@@ -1,6 +1,22 @@
 {
+  "env": {
+    "jest": true
+  },
   "extends": [
     "next/babel",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:jest/recommended"
+  ],
+  "rules": {
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowObject": true
+      }
+    ],
+    "no-unused-vars": 0
+  },
+  "plugins": [
+    "jest"
   ]
 }
